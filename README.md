@@ -7,7 +7,7 @@
     FloatingActionButton fab;
 在被调用的组件上加注解
 2 初始化builder
-Builder builder = new Builder();
+Builder builder = Builder().getBuilder();
         builder.addPage(this, "main");
 3 调用处：
                 builder.getCall("main", "fab").call();
