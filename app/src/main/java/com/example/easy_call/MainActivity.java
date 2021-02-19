@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("call", "fab");
             }
         });
-        Builder builder = new Builder();
+        Builder builder =  Builder.getBuilder();
         builder.addPage(this, "main");
         findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
             @Override

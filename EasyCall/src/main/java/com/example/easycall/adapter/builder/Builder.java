@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Builder {
-    private ArrayList<CallAdapter> list = new ArrayList<>();
-    private Hashtable<String, Hashtable<String, CallAdapter>> page = new Hashtable();
+    private  ArrayList<CallAdapter> list = new ArrayList<>();
+    private  Hashtable<String, Hashtable<String, CallAdapter>> page = new Hashtable();
 
-    public Builder() {
+    private Builder() {
     }
 
     public void addPage(AppCompatActivity activity, String name) {
@@ -40,5 +40,11 @@ public class Builder {
 
     public CallAdapter getCall(String pageName, String name) {
         return page.get(pageName).get(name);
+    }
+    static  class  BuilderHolder{
+        private static Builder builder=new Builder();
+    }
+    public static Builder getBuilder(){
+        return BuilderHolder.builder;
     }
 }
