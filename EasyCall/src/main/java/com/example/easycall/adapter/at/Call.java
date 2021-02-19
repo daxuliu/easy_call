@@ -12,7 +12,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Call {
-    Class <? extends View> type() default View.class;
+    Class<? extends View> type() default View.class;
+
     String name() default "";
+
     int id();
 }

@@ -3,7 +3,7 @@ package com.example.easycall.adapter;
 import android.view.View;
 
 public class CallAdapter<T extends View> {
-    private View instance;
+    private final View instance;
 
     public CallAdapter(View instance) {
         this.instance = instance;
