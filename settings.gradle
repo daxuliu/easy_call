@@ -1,0 +1,3 @@
+include ':EasyCall'
+include ':app'
+rootProject.name = "easy_call"
