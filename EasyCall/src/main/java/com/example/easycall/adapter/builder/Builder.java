@@ -9,6 +9,7 @@ import com.example.easycall.adapter.at.Call;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Objects;
 
 public class Builder {
     private final ArrayList<CallAdapter> list = new ArrayList<>();
@@ -18,7 +19,7 @@ public class Builder {
     }
 
     public static Builder getBuilder() {
-        return BuilderHolder.BUILDER;
+        return BuilderHolder.builder;
     }
 
     public void addPage(Activity activity, String name) {
@@ -42,10 +43,10 @@ public class Builder {
     }
 
     public CallAdapter getCall(String pageName, String name) {
-        return page.get(pageName).get(name);
+        return Objects.requireNonNull(page.get(pageName)).get(name);
     }
 
     static class BuilderHolder {
-        private static final Builder BUILDER = new Builder();
+        private static final Builder builder = new Builder();
     }
 }

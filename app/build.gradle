@@ -12,8 +12,10 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a','armeabi'
+        }
     }
 
     buildTypes {
@@ -49,5 +51,6 @@ dependencies {
 
     // 谷歌的一个工具类库
     implementation "com.google.guava:guava:24.1-jre"
+    implementation 'com.github.hezh-0617:MjxxSDK:native_1.0.14'
 
 }

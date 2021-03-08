@@ -10,11 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.easycall.adapter.at.Call;
+import com.example.easycall.adapter.at.Use;
 import com.example.easycall.adapter.builder.Builder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.mjxx.speechlibsnative.sdk.Config;
+import com.mjxx.speechlibsnative.sdk.SpeechSDK;
 
 public class MainActivity extends AppCompatActivity {
-    @Call(type = FloatingActionButton.class, name = "fab", id = R.id.fab)
+    @Call( name = "fab", id = R.id.fab)
     FloatingActionButton fab;
 
     @Override
@@ -28,8 +31,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("call", "fab");
+
+
+                String s=null;
+                Log.d("crash",s.equals("")+"");
+                Config config = new Config();
+                config.setShowLog(true);  //是否打印日志
+                config.setWriteLog(true); //是否保存日志文件，true则输出日志到 手机储存/SpeechSdkLogs/
+                //以下参数由服务方提供：
+                config.setAsrServerUrl("http://182.61.15.84:8090/v2"); // 语音识别服务器地址
+                config.setAsrPid(Integer.parseInt("888"));  //选填，默认888
+                config.setAsrLongRecordEnable(true);  //asr收否支持长时间录音
+                config.setAsrSaveRecord(true);  //是否保存asr录音文件，true则保存到 手机储存/MUSIC/baidu_asr/
+
+                config.setTtsServerUrl("http://182.61.15.84:8802");  // 语音合成服务器地址
+                config.setWebServerUrl("http://47.106.235.8:10000"); //web host
+                config.setRemoteServerHost(""); //如需代理，请配置我放业务服务器Host
+                SpeechSDK.startSpeech(view.getContext(),config);
+
+
+
             }
         });
+        @Use
+        String use="use";
         Builder builder =  Builder.getBuilder();
         builder.addPage(this, "main");
         findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
