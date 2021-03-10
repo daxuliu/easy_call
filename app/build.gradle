@@ -52,5 +52,7 @@ dependencies {
     // 谷歌的一个工具类库
     implementation "com.google.guava:guava:24.1-jre"
     implementation 'com.github.hezh-0617:MjxxSDK:native_1.0.14'
+    compile project(':library')
+
 
 }

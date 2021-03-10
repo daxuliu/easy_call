@@ -27,9 +27,13 @@
         android:layout_height="wrap_content"
         android:text="test">
 
+
     </Button>
 <!--    <include layout="@layout/content_main" />-->
-
+    <com.suke.widget.SwitchButton
+        android:id="@+id/switch_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
