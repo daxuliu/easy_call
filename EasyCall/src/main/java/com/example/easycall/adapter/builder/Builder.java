@@ -11,10 +11,8 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Objects;
 
-public class Builder {
-    private final ArrayList<CallAdapter> list = new ArrayList<>();
+public class Builder<T extends Activity> {
     private final Hashtable<String, Hashtable<String, CallAdapter>> page = new Hashtable();
-
     private Builder() {
     }
 
@@ -22,7 +20,7 @@ public class Builder {
         return BuilderHolder.builder;
     }
 
-    public void addPage(Activity activity, String name) {
+    public void addPage(T activity, String name) {
         Class c = activity.getClass();
         if (page.get(name) == null) {
             Hashtable<String, CallAdapter> temp = new Hashtable<>();
@@ -33,7 +31,6 @@ public class Builder {
                     String k = call.name();
                     int id = call.id();
                     View view = activity.findViewById(id);
-                    view.callOnClick();
                     CallAdapter adapter = new CallAdapter(view);
                     temp.put(k, adapter);
                 }
@@ -46,7 +43,7 @@ public class Builder {
         return Objects.requireNonNull(page.get(pageName)).get(name);
     }
 
-    static class BuilderHolder {
+    static final class BuilderHolder {
         private static final Builder builder = new Builder();
     }
 }

@@ -3,9 +3,9 @@ package com.example.easycall.adapter;
 import android.view.View;
 
 public class CallAdapter<T extends View> {
-    private final View instance;
+    private final T instance;
 
-    public CallAdapter(View instance) {
+    public CallAdapter(T instance) {
         this.instance = instance;
     }
 

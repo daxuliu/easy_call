@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         });
         @Use
         String use="use";
-        Builder builder =  Builder.getBuilder();
+        Builder <MainActivity> builder =  Builder.getBuilder();
         builder.addPage(this, "main");
         findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
             @Override
